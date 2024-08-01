@@ -1,42 +1,12 @@
-import React from 'react';
 import { BoardProps } from 'boardgame.io/react';
-import { TicTacToeState } from './Game';
-import { Ctx } from 'boardgame.io';
+import { CheckersState } from './Game';
 
-const getWinner = (ctx: Ctx): string | null => {
-  if (!ctx.gameover) return null;
-  if (ctx.gameover.draw) return 'Draw';
-  return `Player ${ctx.gameover.winner} wins!`;
-};
+interface CheckersProps extends BoardProps<CheckersState> {}
 
-interface TicTacToeProps extends BoardProps<TicTacToeState> {}
-
-export const Board = ({ G, ctx, moves, playerID }: TicTacToeProps) => {
-  let winner = getWinner(ctx);
-
+export const Board = ({ G, ctx, moves, playerID }: CheckersProps) => {
   return (
     <div>
-      <h1>Tic Tac Toe (Player {playerID})</h1>
-
-      <div
-        style={{
-          display: 'grid',
-          gridTemplate: 'repeat(3, 3rem) / repeat(3, 3rem)',
-          gridGap: '0.3em',
-        }}
-      >
-        {G.cells.map((cell, index) => (
-          <button
-            key={index}
-            onClick={() => moves.clickCell(index)}
-            disabled={cell !== null}
-          >
-            {cell}
-          </button>
-        ))}
-      </div>
-
-      {winner && <p>{winner}</p>}
+      <h1>Checkers!</h1>
     </div>
   );
 };

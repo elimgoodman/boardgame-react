@@ -1,7 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
 import './index.css';
-import Client from './App';
+import Client from './Client';
 
 const root = ReactDOM.createRoot(
   document.getElementById('root') as HTMLElement
@@ -9,6 +9,5 @@ const root = ReactDOM.createRoot(
 root.render(
   <React.StrictMode>
     <Client playerID="0" />
-    <Client playerID="1" />
   </React.StrictMode>
 );
